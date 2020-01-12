@@ -3,25 +3,32 @@ html {
   height: 100vh;
 }
 
+/* untuk mobile version ----------------------------------------*/
 body {
   margin: 0;
   color: red;
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   /* sesuikan dengan berapa jumlah kolom (horizontal) dari kiri ke kanan */
-  /* (auto = lebar sidebar, 27% = lebar section1, 27% = lebar section2, 27% = lebar section3)  */
-  grid-template-columns: auto 27% 27% 27%;
+
+  grid-template-columns: 100%;
   /* sesuaikan dengan berapa jumlah baris (vertikal) dari atas ke bawah*/
-  /* (8% = tinggi header, 30% = tinggi semua section, auto = 10%) */
-  grid-template-rows: 8% 30% auto 10%;
+
+  grid-template-rows: repeat(auto, 5);
   /* beri nama pada masing masing komponen */
   grid-template-areas:
-    "sidebar header header header"
-    "sidebar sect1 sect2 sect3"
-    "sidebar main main main"
-    "sidebar footer footer footer"
+    "header"
+    "sect1"
+    "sect2"
+    "sect3"
+    "main"
+    "footer"
   ;
 }
+
+/* ------------------------------------------------------------------------ */
+
+/* general setting (desktop and mobile) */
 
 aside {
   grid-area: sidebar;
@@ -56,4 +63,28 @@ main {
 footer {
   grid-area: footer;
   background-color: grey;
+}
+
+/* responsive */
+/* dibawah ini kode untuk versi desktop */
+@media only screen and (min-width : 768px) {
+  body {
+    margin: 0;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    /* sesuikan dengan berapa jumlah kolom (horizontal) dari kiri ke kanan */
+    /* (auto = lebar sidebar, 27% = lebar section1, 27% = lebar section2, 27% = lebar section3)  */
+    grid-template-columns: auto 27% 27% 27%;
+    /* sesuaikan dengan berapa jumlah baris (vertikal) dari atas ke bawah*/
+    /* (8% = tinggi header, 30% = tinggi semua section, auto = tinggi main, 10% = tinggi footer ) */
+    grid-template-rows: 8% 30% auto 10%;
+    /* beri nama pada masing masing komponen */
+    grid-template-areas:
+      "sidebar header header header"
+      "sidebar sect1 sect2 sect3"
+      "sidebar main main main"
+      "sidebar footer footer footer"
+    ;
+  }
 }
