@@ -1,0 +1,59 @@
+body,
+html {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  /* sesuikan dengan berapa jumlah kolom (horizontal) dari kiri ke kanan */
+  /* (auto = lebar sidebar, 27% = lebar section1, 27% = lebar section2, 27% = lebar section3)  */
+  grid-template-columns: auto 27% 27% 27%;
+  /* sesuaikan dengan berapa jumlah baris (vertikal) dari atas ke bawah*/
+  /* (8% = tinggi header, 30% = tinggi semua section, auto = 10%) */
+  grid-template-rows: 8% 30% auto 10%;
+  /* beri nama pada masing masing komponen */
+  grid-template-areas:
+    "sidebar header header header"
+    "sidebar sect1 sect2 sect3"
+    "sidebar main main main"
+    "sidebar footer footer footer"
+  ;
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: aqua;
+}
+
+header {
+  grid-area: header;
+  background-color: aquamarine;
+}
+
+.sect1 {
+  grid-area: sect1;
+  background-color: bisque;
+}
+
+.sect2 {
+  grid-area: sect2;
+  background-color: chartreuse;
+}
+
+.sect3 {
+  grid-area: sect3;
+  background-color: rgb(212, 226, 17);
+}
+
+main {
+  grid-area: main;
+  background-color: rgb(19, 136, 214);
+}
+
+footer {
+  grid-area: footer;
+  background-color: grey;
+}
